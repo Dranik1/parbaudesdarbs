@@ -1,5 +1,52 @@
 {
-    "name": "A",
-    "number": "4",
-    "id": ""
+    "apmekletaji": [
+        {
+            "name": "A",
+            "number": "4",
+            "id": "2",
+            "city": "O"
+        },
+        {
+            "name": "D",
+            "number": "2",
+            "id": "3",
+            "city": "L"
+        },
+        {
+            "name": "C",
+            "number": "4",
+            "id": "3",
+            "city": "L"
+        },
+        {
+            "name": "D",
+            "number": "3",
+            "id": "4",
+            "city": "H",
+            "water_num": 2,
+            "nomaksaja": [
+                0,
+                45,
+                0,
+                45
+            ]
+        },
+        {
+            "name": "F",
+            "number": "345",
+            "id": "15",
+            "city": "L",
+            "water_num": 4.0,
+            "nomaksaja": 1.8
+        },
+        {
+            "name": "H",
+            "number": "456",
+            "id": "78",
+            "city": "K",
+            "water_num": 3.0,
+            "nomaksaja": 1.35,
+            "registration_time": "11/11/24"
+        }
+    ]
 }
