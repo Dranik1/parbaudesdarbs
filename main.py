@@ -29,19 +29,41 @@ def add_person():
     person_number=input("Ievadiet apmekletaju numuru: ")
     person_id=input("Ievadiet apmekletaju id: ")
     person_city=input("Ievadiet apmekletaju pilsetu: ")
-    water()
+    
     x=datetime.datetime.now()
     time=x.strftime("%x")
+
     person={
         'name':person_name,
         'number':person_number,
         'id':person_id,
         'city':person_city,
-        'water_num': bottle_num,
-        'nomaksaja': maksa,
-        'registration_date':time
+        'registration_date':time,
+        'apmeklejums':[]
     }
 
+    while True:
+        response=input("Vai vēlies pievienot apmeklejumu? y/n")
+        if response=='y':
+            print("Apmeklejuma informācija:")
+            apmeklejuma_laiks=input('Cik ilgs apmeklejums: ')
+            bernu_sk = input('Bernu skaits: ')
+            apmeklejuma_id=input('Apmeklejuma id:') 
+            apmeklejuma_datums=datetime.datetime.now().strftime('%x')
+            water()
+            apmeklejums = {
+                'time': apmeklejuma_laiks,
+                'children': bernu_sk,
+                'bottle_num': bottle_num,
+                'price': maksa,
+                'id': apmeklejuma_id,
+                'date': apmeklejuma_datums
+            } 
+            person['apmeklejums'].append(apmeklejums)
+        elif response=='n':
+            break
+        else:
+            print('Ludzu izvelies y vai n')
     apmekletaji.append(person)
 
 def print_person():
@@ -53,8 +75,31 @@ def find_by_id():
     id=input("Ievadiet cilveka id: ")
     for i in apmekletaji:
         if i['id']==id:
-            print(i)
-            return
+            print(f"{i['name']}(id:{int(i['id'])}, {i['number']}, {i['city']})")
+            while True:
+                response=input("Vai velaties izdarit jauno apmeklejuu? y/n")
+                if response=="y":
+                    print("Apmeklejuma informācija:")
+                    apmeklejuma_laiks=input('Cik ilgs apmeklejums: ')
+                    bernu_sk = input('Bernu skaits: ')
+                    apmeklejuma_id=input('Apmeklejuma id:') 
+                    apmeklejuma_datums=datetime.datetime.now().strftime('%x')
+                    water()
+                    apmeklejums = {
+                        'time': apmeklejuma_laiks,
+                        'children': bernu_sk,
+                        'bottle_num': bottle_num,
+                        'price': maksa,
+                        'id': apmeklejuma_id,
+                        'date': apmeklejuma_datums
+                        } 
+                    i['apmeklejums'].append(apmeklejums)
+                elif response=='n':
+                    break
+                else:
+                    print('Ludzu izvelies y vai n')
+        else:
+            pass
 
 def main():
     load_data()
